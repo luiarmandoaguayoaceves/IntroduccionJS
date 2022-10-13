@@ -1,11 +1,11 @@
 //Classes
 
 class Producto {
-    constructor(nombre, precio){
+    constructor(nombre, precio){//constructor van las variables
         this.nombre = nombre;
         this.precio = precio;
     }
-    formatearProducto(){
+    formatearProducto(){//metodos
         return`El producto ${this.nombre} tiene un precio de: ${this.precio}`
     }
     retornarPrecio(){
