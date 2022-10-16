@@ -6,6 +6,17 @@ function descargarNuevosClientes(){
 
         setTimeout(() =>{
             resolve('Los clientes fueron descargados...');
+        }, 4000);
+
+    })
+}
+
+function descargarUltimosPedidos(){
+    return new Promise (resolve => {
+        console.log('Descargando pedidos... espere...');
+
+        setTimeout(() =>{
+            resolve('Los pedidos fueron descargados...');
         }, 1000);
 
     })
@@ -13,8 +24,14 @@ function descargarNuevosClientes(){
 
 async function app(){
     try {
-        const resultado = await descargarNuevosClientes();
-        console.log(resultado);
+        // const clientes= await descargarNuevosClientes();
+        // const pedidos= await descargarUltimosPedidos();
+        // console.log(clientes);
+        // console.log(pedidos);
+
+        const resultado = await Promise.all([descargarNuevosClientes(), descargarUltimosPedidos() ])
+        console.log(resultado[0])
+        console.log(resultado[1])
     } catch (error) {
         console.log(error)
     }
@@ -24,7 +41,7 @@ async function app(){
 
 app();
 
-console.log('Este codigo no se bloquea');
+// console.log('Este codigo no se bloquea');
 
 /*setTimeout lo hace despuede e 1000 que es 1 segundo */
 // setTimeout(function(){
